@@ -1,0 +1,347 @@
+@import "tailwindcss";
+
+@theme {
+  --font-cairo: "Cairo", ui-sans-serif, system-ui, sans-serif;
+  --font-outfit: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --color-navy: #061428;
+  --color-navy-2: #0a1f3d;
+  --color-navy-3: #0d2a56;
+  --color-brand: #1565c0;
+  --color-brand-2: #1e88e5;
+  --color-cyan: #29b6f6;
+  --color-ice: #e8f4ff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #061428;
+  color: #0b1d36;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body[data-lang="ar"],
+body[data-lang="ar"] * {
+  font-family: "Cairo", ui-sans-serif, system-ui, sans-serif;
+}
+
+body[data-lang="en"],
+body[data-lang="en"] * {
+  font-family: "Outfit", ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: #1e88e5;
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #061428;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #1e88e5, #0d47a1);
+  border-radius: 99px;
+}
+
+.font-ar {
+  font-family: "Cairo", ui-sans-serif, system-ui, sans-serif;
+}
+.font-en {
+  font-family: "Outfit", ui-sans-serif, system-ui, sans-serif;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #90caf9 0%, #42a5f5 35%, #29b6f6 70%, #e3f2fd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-text-dark {
+  background: linear-gradient(90deg, #0d47a1 0%, #1565c0 50%, #0288d1 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.7rem;
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  background: linear-gradient(135deg, #1e88e5 0%, #0d47a1 100%);
+  box-shadow: 0 10px 30px -8px rgba(13, 71, 161, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+  overflow: hidden;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 16px 36px -8px rgba(13, 71, 161, 0.75);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.95rem 1.7rem;
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  transition: background 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+}
+
+.card-light {
+  background: #fff;
+  border: 1px solid rgba(13, 42, 86, 0.08);
+  box-shadow: 0 20px 50px -24px rgba(6, 20, 40, 0.25);
+}
+
+.mesh {
+  background-image:
+    radial-gradient(at 12% 18%, rgba(30, 136, 229, 0.18) 0px, transparent 45%),
+    radial-gradient(at 88% 12%, rgba(41, 182, 246, 0.12) 0px, transparent 40%),
+    radial-gradient(at 70% 80%, rgba(13, 71, 161, 0.2) 0px, transparent 50%);
+}
+
+.grid-overlay {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(30, 136, 229, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(30, 136, 229, 0);
+  }
+}
+@keyframes spinSlow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-33.333%);
+  }
+}
+.marquee {
+  animation: marquee 28s linear infinite;
+}
+html[dir="rtl"] .marquee {
+  animation-name: marqueeRtl;
+}
+@keyframes marqueeRtl {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(33.333%);
+  }
+}
+@keyframes dash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+@keyframes ringPulse {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.18);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.anim-up {
+  animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.anim-in {
+  animation: fadeIn 0.8s ease both;
+}
+.anim-scale {
+  animation: scaleIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+.delay-1 {
+  animation-delay: 0.1s;
+}
+.delay-2 {
+  animation-delay: 0.22s;
+}
+.delay-3 {
+  animation-delay: 0.34s;
+}
+.delay-4 {
+  animation-delay: 0.46s;
+}
+.delay-5 {
+  animation-delay: 0.58s;
+}
+.delay-6 {
+  animation-delay: 0.7s;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.on {
+  opacity: 1;
+  transform: none;
+}
+
+.input {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid rgba(13, 42, 86, 0.12);
+  background: #f7fbff;
+  padding: 0.95rem 1.1rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  color: #0b1d36;
+}
+.input:focus {
+  border-color: #1e88e5;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(30, 136, 229, 0.15);
+}
+.input::placeholder {
+  color: #8aa0b8;
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1565c0;
+  background: rgba(21, 101, 192, 0.08);
+  border: 1px solid rgba(21, 101, 192, 0.16);
+}
+
+.noise {
+  position: relative;
+}
+.noise::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.wa-btn {
+  animation: pulseGlow 2.4s ease-out infinite;
+}
+
+.loader-ring {
+  animation: spinSlow 1.4s linear infinite;
+}
